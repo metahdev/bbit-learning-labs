@@ -46,14 +46,14 @@ There are plenty of different styling frameworks to use, and we encourage you to
   font-family: "PT Serif", serif;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   @apply text-title text-left;
 }
 
 .featured-story-summary {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   @apply line-clamp-[8] lg:line-clamp-none text-body
 }
 .featured-story-author {

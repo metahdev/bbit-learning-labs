@@ -21,14 +21,37 @@ function NewsCard({ article }: NewsCardProps) {
 
     // Hint: Some classes in `globals.css` could help with styling
 
-    return (
-        <div className="news-card">
-            <div className="news-info">
-                {/* TODO: Remove the span below and implement a reusable NewsCard */}
-                <span className='instruction'>Part 2: Build Reusable News Card</span>
-            </div>
+    const truncateText = (text: string, maxLength: number) => {
+        return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+      };
+    
+      return (
+        <div className="news-card rounded-xl shadow-lg bg-white overflow-hidden">
+          <div className="news-img-div ">
+            <img 
+              src={article.image_url} 
+              alt={article.title} 
+              className="news-img rounded-xl" 
+            />
+          </div>
+          <div className="news-info">
+            <h3 className="story-title">{truncateText(article.title, 20)}</h3>
+            <p className="story-summary">
+              {truncateText(article.body, 40)}
+            </p>
+
+            <Link
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="origin-link mt-4 text-blue-600 font-medium hover:underline"
+                >
+                    Read more →
+                </Link>
+                
+          </div>
         </div>
-    );
+      );
 }
 
 export default NewsCard;
